@@ -26,7 +26,7 @@ app.post("/api/chat", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: "You summarize articles in websites sent to you.",
+          content: "You shorten summarize articles in websites sent to you.",
         },
         {
           role: "user",
@@ -47,4 +47,3 @@ app.post("/api/chat", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
