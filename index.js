@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const Groq = require('groq-sdk');
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
@@ -45,5 +45,6 @@ app.post("/api/chat", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
+
