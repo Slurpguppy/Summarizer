@@ -14,12 +14,15 @@
 
 
 
-    body {
-      font-family: Ubuntu, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Ubuntu, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
 
     .header {
   display: flex;
@@ -74,15 +77,20 @@
 }
 
 
-    .chat-container {
-      width: 90%;
-      max-width: 600px;
-      margin: auto;
-      background-color: #343434;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  background-color: #343434;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 12px;
+}
     .chat-log {
       
       overflow-y: auto;
@@ -117,6 +125,7 @@
     }
     .input-container {
       display: flex;
+      
       padding: 10px;
       background-color: #4f4f4f;
       padding: 10px;
