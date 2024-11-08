@@ -1,0 +1,433 @@
+<!--
+ _    _  _      ______   
+| |  | || |     | ___ \  
+| |  | || |     | |_/ /  
+| |/\| || |     |    /   
+\  /\  /| |_____| |\ \ _ 
+ \/  \(_)_____(_)_| \_(_)
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="css/landingstyle.css" />
+   <link rel="icon" href="favicon.png" type="image/png">
+   <title>AI Summarizer</title>
+ </head>
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* background: #0b0b0b; */
+
+.body {
+    background: #0b0b0b;
+    font-family: Ubuntu, sans-serif;
+}
+
+
+
+.main {
+    color: #fff;
+    position: fixed;
+    left: 40%;
+    top: 250px;
+}
+
+.login-box {
+    width: 100%;
+    height: 40px;
+}
+
+.logo {
+    color: #fff;
+    padding: 0px 50px  0px  38px ;
+    top: -5px;
+    position: fixed;
+}
+
+.responsive-text {
+    position: fixed;
+    top: 24px;
+    left: 120px;
+}
+
+@media screen and (max-width: 600px) {
+    .responsive-text {
+      display: none; /* Hides the text */
+    }
+  }
+
+.loginbtn {
+    top: 20px;
+	right: 48px;
+	cursor: pointer;
+	padding: 10px 20px;
+	background: #007bff;
+	color: rgb(230, 230, 230);
+	border: 0;
+	font-size: 17px;
+	border-radius: 5px;
+	transition: 0.1s ease-in, color 0.1s ease-in, transform 0.1s ease-in;
+	position: fixed;
+}
+
+.downloadbtn {
+    top: 20px;
+	right: 143px;
+	cursor: pointer;
+	padding: 10px 20px;
+	background: #007bff;
+	color: rgb(230, 230, 230);
+	border: 0;
+	font-size: 17px;
+	border-radius: 5px;
+	transition: 0.1s ease-in, color 0.1s ease-in, transform 0.1s ease-in;
+	position: fixed;
+}
+
+.Welcome {
+    color: #fff; /* Ensure text color is visible */
+    font-size: 24px; /* Adjust as needed */
+    text-align: center; /* Center text */
+    top: 170px; /* Add some margin for spacing */
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin: 20px;
+    color: #fff; /* Ensure text color is visible */
+    font-size: 20px;
+    margin-top: 30%;
+}
+
+  .loginbtn-2 {
+    position: absolute;
+    top: 85%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #007bff;
+    color: rgb(230, 230, 230);
+    border: 0;
+    font-size: 17px;
+    border-radius: 5px;
+    transition: 0.1s ease-in, color 0.1s ease-in, transform 0.1s ease-in;
+    width: 120px;
+  }
+
+  .free-v {
+    position: absolute;
+    top: 85%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #007bff;
+    color: rgb(230, 230, 230);
+    border: 0;
+    font-size: 17px;
+    border-radius: 5px;
+    transition: 0.1s ease-in, color 0.1s ease-in, transform 0.1s ease-in;
+    width: 120px;
+  }
+
+  .loginbtn-2:hover {
+    background: rgb(39, 39, 39); 
+    color: #fff;
+  }
+
+  .free-v:hover {
+    background: rgb(39, 39, 39); 
+    color: #fff;
+  }
+
+.loginbtn:hover,
+.downloadbtn:hover {
+    background: rgb(39, 39, 39); 
+    color: #fff; 
+}
+
+
+
+.commingsoon {
+    position: relative;
+   left: 80px;
+   
+    font-size: 30px;
+}
+
+
+    .welcome-container {
+    flex: 1;
+    position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  height: 80vh;
+  margin: auto;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 100px;
+
+}
+    
+
+
+
+
+
+
+
+
+
+
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #0b0b0b;
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #646464;
+    color: transparent;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 19s ease-in forwards infinite;
+}
+undefined
+.background li:nth-child(0) {
+    animation-delay: 0s;
+    left: 59vw;
+    top: 75vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(1) {
+    animation-delay: 2s;
+    left: 54vw;
+    top: 4vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(2) {
+    animation-delay: 4s;
+    left: 34vw;
+    top: 44vh;
+    border-color: #007bff;
+}
+
+.background li:nth-child(3) {
+    animation-delay: 6s;
+    left: 7vw;
+    top: 16vh;
+}
+
+.background li:nth-child(4) {
+    animation-delay: 8s;
+    left: 14vw;
+    top: 89vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(5) {
+    animation-delay: 10s;
+    left: 99vw;
+    top: 95vh;
+}
+
+.background li:nth-child(6) {
+    animation-delay: 12s;
+    left: 18vw;
+    top: 11vh;
+}
+
+.background li:nth-child(7) {
+    animation-delay: 14s;
+    left: 71vw;
+    top: 45vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(8) {
+    animation-delay: 16s;
+    left: 69vw;
+    top: 68vh;
+    border-color: #007bff;
+}
+
+.background li:nth-child(9) {
+    animation-delay: 18s;
+    left: 62vw;
+    top: 35vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(10) {
+    animation-delay: 20s;
+    left: 20vw;
+    top: 70vh;
+}
+
+.background li:nth-child(11) {
+    animation-delay: 22s;
+    left: 90vw;
+    top: 5vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(12) {
+    animation-delay: 24s;
+    left: 27vw;
+    top: 54vh;
+}
+
+.background li:nth-child(13) {
+    animation-delay: 26s;
+    left: 48vw;
+    top: 32vh;
+    border-color: #007bff;
+}
+
+.background li:nth-child(14) {
+    animation-delay: 28s;
+    left: 87vw;
+    top: 94vh;
+}
+
+.background li:nth-child(15) {
+    animation-delay: 30s;
+    left: 81vw;
+    top: 84vh;
+}
+
+.background li:nth-child(16) {
+    animation-delay: 32s;
+    left: 37vw;
+    top: 62vh;
+}
+
+.background li:nth-child(17) {
+    animation-delay: 34s;
+    left: 3vw;
+    top: 21vh;
+    border-color: #7b7b7b;
+}
+
+.background li:nth-child(18) {
+    animation-delay: 36s;
+    left: 40vw;
+    top: 29vh;
+}
+
+.background li:nth-child(19) {
+    animation-delay: 38s;
+    left: 78vw;
+    top: 56vh;
+}
+
+.payment {
+    background-color: #f8f9fa;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 150px;
+    margin-top: 150px;
+}
+
+
+ </style>
+ <body class="body">
+  <ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <body class="body">
+    <div class="header">
+      <h1 class="logo"> <img src="imgs/newspaper-regular.svg" alt="Logo" style="height: 50px; position: relative;"></i><div class="responsive-text">&nbsp;AI Summarizer</div></h1>
+      <button class="loginbtn" onclick="window.location.href='login.html'">Login</button>
+      <button class="downloadbtn" onclick="window.location.href='Download.html'">Start now</button>
+    </div>
+  
+    
+<div class="welcome-container">
+    <div class="text-container">Get full access to Summarizer and unlock all features!
+        <div class="Welcome"></i>AI-powered article <span style="color: #007BFF;">summarizer</span></div>
+    <stripe-buy-button class="payment"
+  buy-button-id="buy_btn_1QAuyKP5r3Cxb4iW7vzceDFj"
+  publishable-key="pk_live_51Q70HiP5r3Cxb4iWYFGCnraCVhy4geOWk3QTPDbGyF9QY6MluozcJ0rUnkny66KXxzvcukKbDsLNEwsF7rqvSVCZ00fkzLe2lB"
+>
+</stripe-buy-button>
+</div>
+  
+    
+    <script async
+src="https://js.stripe.com/v3/buy-button.js">
+</script>
+  </body>
+  </html>

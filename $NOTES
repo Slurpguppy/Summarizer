@@ -1,0 +1,82 @@
+make it so the slider value is obtained via a DOM query. sent from client side when user moves slider
+
+
+v20.15.1
+
+// response sizes
+//Your responses must fit within 20 and 50 tokens.
+//Your responses must fit within 100 and 150 tokens.
+//Your responses must fit within 175 and 225 tokens.
+
+
+homepage
+    |
+    loginpgage-paidApp.
+    freeAppPage
+              |
+              loginpgage
+                       |
+                       paidApp.
+
+
+loginPage needs to include, login form, and payment btn.
+
+1st login form, 
+2end payment
+BUT the paymeny needs to be complete befor login for submit btn is clicked
+
+
+add to ai response
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    on register page change submit btn to link to login page
+
+
+stripe key 
+fgms-iged-aqva-rsux-osam
+groq key
+GROQ_API_KEY=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
+
+
+GITHUB TEST
+
+
+//Stage Your Changes: Add the modified files to the staging area: 
+
+git add .
+
+//Commit with a Message: Save your changes with a descriptive commit message:
+
+git commit -m "Describe your changes here"
+
+//Push Your Changes: Update your GitHub repository with the changes
+
+git push origin master
+
+CONNECT TO REPO
+
+git clone https://github.com/Slurpguppy/Summarizer.git
+cd Summarizer
+
+-UPLOAD TO GIT-
+
+git add .
+git commit -m "Describe your changes here"
+git push origin main
+
+
+make iframe for register
+
+########################
+
+if it doesnt look right onmoble with the container hight, 
+
+change the body hight, and the contaner hight
+
+
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

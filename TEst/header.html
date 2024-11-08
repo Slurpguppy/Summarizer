@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Header</title>
+<style>
+  /* Basic reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Header styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }
+
+  .header button {
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  /* Center button styling */
+  .center-button {
+    flex: 1;
+    margin: 0 15px;
+    padding: 10px 20px;
+    background-color: #777;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  /* Responsive layout */
+  @media (max-width: 600px) {
+    .center-button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+    .header button {
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <button>Button 1</button>
+  <div class="center-button">Summarizer</div>
+  <button>Button 2</button>
+</div>
+
+</body>
+</html>

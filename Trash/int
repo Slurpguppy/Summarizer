@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Pay me little pig!</h1>
+    </header>
+
+    <main>
+        <stripe-buy-button
+  buy-button-id="buy_btn_1QAuyKP5r3Cxb4iW7vzceDFj"
+  publishable-key="pk_live_51Q70HiP5r3Cxb4iWYFGCnraCVhy4geOWk3QTPDbGyF9QY6MluozcJ0rUnkny66KXxzvcukKbDsLNEwsF7rqvSVCZ00fkzLe2lB"
+>
+</stripe-buy-button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Summarizer</p>
+    </footer>
+
+    <script async
+src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+    <script>
+
+    </script> 
+</body>
+</html>

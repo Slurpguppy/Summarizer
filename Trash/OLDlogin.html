@@ -1,0 +1,99 @@
+<!--
+ _    _  _      ______   
+| |  | || |     | ___ \  
+| |  | || |     | |_/ /  
+| |/\| || |     |    /   
+\  /\  /| |_____| |\ \ _ 
+ \/  \(_)_____(_)_| \_(_)
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/landingstyle.css" />
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>WLR Messages</title>
+</head>
+<body class="body">
+  <ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <div class="login-header">
+    <h1 class="logo" onclick="window.location.href='index.html'"> <img src="favicon.png" alt="Logo" style="height: 50px; position: relative; top: 10px;"></i><Div class="responsive-text">&nbsp;WLR</Div></h1>
+    <button class="loginbtn" onclick="window.location.href='login.html'">Login</button>
+    <button class="downloadbtn" onclick="window.location.href='Download.html'">About</button>
+  </div>
+  <div class="join-container">
+    <header class="join-header">
+      <h1> <img src="favicon.png" alt="Logo" style="height: 50px; position: relative; top: 10px;"></i>&nbsp;Messages login</h1>
+    </header>
+    <main class="join-main">
+      <form id="username-form" action="chat.html">
+          <div class="form-control">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" class="login-box" placeholder="Enter username" required />
+          </div>
+         
+          <button type="submit" class="btn">Join Chat</button>
+      </form>
+      
+  </main>
+  <div class="footer">
+    <p>&copy; 2024 WLR Messages. All rights reserved.</p>
+</div>
+
+  <script>
+      
+      
+  </script> 
+
+</body>
+</html>
+
+<!--
+to trun on password, and add required to box, and add the script and html.
+
+ <div class="form-control">
+            <label for="password">Password:-In testing</label>
+            <input type="number" id="password" class="login-box" name="password" placeholder="Enter password" />
+        </div>
+
+        document.getElementById('username-form').addEventListener('submit', function(event) {
+          // Prevent the default form submission
+          event.preventDefault();
+
+          // Get the values from the input fields
+          var part1 = document.getElementById('username').value;
+          var part2 = document.getElementById('password').value;
+
+          // Combine the parts
+          var fullUsername = part1 + part2;
+
+          // Redirect to chat.html with the combined username as a URL parameter
+          window.location.href = 'chat.html?username=' + encodeURIComponent(fullUsername);
+      });
+-->

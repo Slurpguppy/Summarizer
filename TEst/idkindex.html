@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Page Iframe Example</title>
+  <style>
+    /* Style for the full-page iframe */
+    #fullPageIframe {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 1000; /* Bring iframe on top */
+    }
+    /* Style for the close button */
+    #closeIframeBtn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 1001; /* Ensure button appears above iframe */
+    }
+  </style>
+</head>
+<body>
+  <button id="openIframeBtn">Open Full-Page Iframe</button>
+
+  <!-- Full-page iframe -->
+  <iframe id="fullPageIframe"></iframe>
+  <!-- Close button -->
+  <button id="closeIframeBtn" style="display:none;">Logout</button>
+
+  <script>
+    // Get elements
+    const openIframeBtn = document.getElementById('openIframeBtn');
+    const closeIframeBtn = document.getElementById('closeIframeBtn');
+    const iframe = document.getElementById('fullPageIframe');
+
+    // Function to open the iframe
+    openIframeBtn.addEventListener('click', function() {
+      iframe.src = 'http://localhost:8000'; // Set your iframe URL here
+      iframe.style.display = 'block'; // Show the iframe
+      closeIframeBtn.style.display = 'block'; // Show the close button
+    });
+
+    // Function to close the iframe
+    closeIframeBtn.addEventListener('click', function() {
+      iframe.style.display = 'none'; // Hide the iframe
+      closeIframeBtn.style.display = 'none'; // Hide the close button
+    });
+  </script>
+</body>
+</html>

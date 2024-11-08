@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summarizer</title>
+  <link rel="icon" href="imgs/newspaper-regular.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8986512893450250"
+     crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="css/sliderstyles.css"> <!-- Slider css -->
+     <link id="theme-stylesheet" rel="stylesheet" href="css/dark-styles.css"> <!-- Main css -->
+     <link rel="stylesheet" href="css/copystyles.css"> <!-- Side-bar css -->
+     <link rel="stylesheet" href="css/popup-styles.css"> <!-- popup css -->
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="popup">
+    <h1>Login</h1>
+    <!--<button id="aboutBtn">About</button>-->
+    <form id="register-form">
+        <!-- Registration form can be added here if needed -->
+    </form>
+
+    <h2>Login</h2>
+    <form class="login-form" id="login-form">
+        <input class="login-input" type="text" id="emailOrUsername" placeholder="Email or Username" required>
+        <input class="login-input" type="password" id="login-password" placeholder="Password" required>
+        <button class="login-btn" id="aboutBtn" type="submit">Login</button>
+    </form>
+</div>
+<div id="overlay"></div>
+<div id="mainContent">
+    <!--<button id="aboutBtn">About</button>-->
+    <form id="register-form">
+    </form>
+</div>
+<div id="content"></div>
+<!--APP-->
+  <div class="side-bar">
+
+    <div class="side-bar-header">
+     
+    <div class="center-button">
+      <img src="imgs/newspaper-regular.svg" alt="Icon" width="30" height="30">
+      <span></span>
+  </div>
+  <button onclick="closeSidebar()">
+    <img src="imgs/xmark-solid.svg" alt="Close" width="30" height="30">
+</button>
+</div>
+<!--
+    <div class="side-bar-header">
+    <button class="close-button" onclick="closeSidebar()"><object type="image/svg+xml" data="imgs/xmark-solid.svg" width="30" height="30"></object>
+    </button>
+    <div class="about text-dark-mode"><object class="paper-logo" type="image/svg+xml" data="imgs/newspaper-regular.svg" width="20" height="20">Summarizer</object></i><span class="paper-logo-text style="color: #252525;">Summarizer</span></div>
+  </div>
+-->
+    <div class="container">
+      <div id="save" class="log">
+        <h2 class="History saved-art"></h2>
+          <select class="sort-btn" id="sortOptions">
+              <option value="default">Sort By</option>
+              <option value="Alphabetical">Alphabetical</option>
+              <option value="chronological">Recent</option>
+          </select>
+          <ul class="saved-text-list"></ul>
+          <button class="side-bar-btns" id="clearLogsButton">Delete saved articles</button>
+          <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0&themeRefresh=1">
+            <button class="side-bar-btns">Logout</button>
+        </a>
+      </div>
+  </div>
+  </div>
+ <!--<div class="header header-dark" id="header">
+  <div class="logo">--> 
+    <button class="open-button" onclick="togglePopup()"> <img src="imgs/bars-solid.svg" alt="Icon" width="30" height="30">
+  
+ </button>
+  </div>
+</div>
+<div class="options-bar">
+  <button id="Save-alert" class="option-btn save-btn"><object type="image/svg+xml" data="imgs\download-solid.svg" width="20" height="20"></object><br>Save</button>
+  <button id="Speak-alert" class="option-btn" onclick="speakText()"><object type="image/svg+xml" data="imgs/play-solid.svg" width="20" height="20"></object><br>Speak</button>
+  <button id="Copy-alert" class="option-btn" onclick="copyToClipboard()"><object type="image/svg+xml" data="imgs/copy-solid.svg" width="20" height="20"></object><br>Copy</button>
+  <button id="Redo-alert" class="option-btn" onclick="repeatLastMessage()"><object type="image/svg+xml" data="imgs/repeat-solid.svg" width="20" height="20"></object><br>Rewrite</button>
+</div>
+<div class="slider-container">
+  <input type="range" min="1" max="3" value="2" class="slider" id="mySlider" step="1" oninput="updateSliderValue()">
+  <p style="margin: 10px; margin-top: 16px; white-space: nowrap; color: white;">Summary length: <span id="sliderValue">Medium</span></p>
+</div>
+<div class="chat-container chat-dark-mode">
+  <div onclick="switchStyles()" class="theme-tog">
+    
+  </div>
+  <div class="chat-log" id="chat-log"></div>
+  <div class="input-container input-container-dark" id="input-container">
+    <input type="text" class="user-input user-input-dark" id="user-input" placeholder="Enter URL, or text..." />
+    <button class="paste-btn" onclick="pasteClipboard()">Paste</button>
+    <button class="send-btn" onclick="sendMessage()">Summarize</button>
+  </div>
+  <div class="footer">Created by <span style="color: #216d21;">Will Ratkowski</span>, powered by Groq AI.</div>
+</div>
+  
+  <script>
+    let lastMessage = ""; // Variable to store the last message sent by the user
+    let sliderValue = 2; // Initialize the slider value
+
+    async function sendMessage() {
+  const input = document.getElementById("user-input");
+  const message = input.value;
+  if (!message) return;
+
+  const chatLog = document.getElementById("chat-log");
+  chatLog.innerHTML = '';
+
+  // Add user's message to chat log
+  chatLog.innerHTML += `<div class="message user-message"><span class="link-text">Your link</span>: ${message}</div>`;
+  lastMessage = message; // Store the last message
+  input.value = "";
+  chatLog.scrollTop = chatLog.scrollHeight; // Scroll to bottom
+
+  // Send message to backend
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message }),
+    });
+    const data = await response.json();
+
+    // Add AI's response to chat log
+    chatLog.innerHTML += `
+  <div class="text-input message ai-message" id="textToRead">
+    <span class="ai-text">Summarized:</span><br> ${data.response.replace(/\n/g, '<br>')}
+  </div>
+`;
+    chatLog.scrollTop = chatLog.scrollHeight; // Scroll to bottom
+
+    
+
+    // Show the copy button
+    document.getElementById("ai-response-container").style.display = "block"; // Display the copy button
+  } catch (error) {
+    console.error("Error:", error);
+    chatLog.innerHTML += `<div class="message ai-message"></div>`;
+    chatLog.scrollTop = chatLog.scrollHeight; // Scroll to bottom
+    document.getElementById("ai-response-container").style.display = "none"; // Hide the copy button
+  }
+}
+
+
+function repeatLastMessage() {
+  if (lastMessage) {
+    document.getElementById("user-input").value = lastMessage; // Set the input value to the last message
+    sendMessage(); // Call sendMessage to send the last message
+  } 
+}
+
+  function speakText() {
+  const textElement = document.getElementById("textToRead");
+
+  // Make sure the element exists and has content
+  if (textElement) {
+    const text = textElement.textContent; // Use textContent to get the text inside the div
+    
+    // Check if the browser supports SpeechSynthesis
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    } 
+  } 
+}
+// Add this function to your existing script
+function copyToClipboard() {
+  const aiResponse = document.querySelector("#textToRead");
+
+  // Make sure the AI response element exists
+  if (aiResponse) {
+    const responseText = aiResponse.textContent;
+
+    // Use the clipboard API to copy the text
+    navigator.clipboard.writeText(responseText).then(() => {
+      
+    }).catch(err => {
+      console.error("Could not copy text: ", err);
+    });
+  } else {
+    
+  }
+}
+
+document.querySelector('.save-btn').addEventListener('click', function() {
+  // Get the AI response text
+  const aiResponseElement = document.querySelector('#textToRead');
+  
+  if (aiResponseElement) {
+    const inputText = aiResponseElement.textContent.trim();
+    
+    // Check if there's any text to save
+    if (inputText) {
+      // Create a new list item
+      const listItem = document.createElement('li');
+      listItem.textContent = inputText;
+      
+      // Append the list item to the sidebar list
+      document.querySelector('.saved-text-list').appendChild(listItem);
+    } 
+  } 
+});
+
+//side-bar btn
+
+function togglePopup() {
+  const container = document.querySelector('.side-bar');
+  container.style.display = container.style.display === 'block' ? 'none' : 'block';
+}
+
+function closeSidebar() {
+  const sidebar = document.querySelector('.side-bar');
+  sidebar.style.display = 'none';
+}
+
+async function pasteClipboard() {
+        try {
+            // Use the Clipboard API to read the clipboard text
+            const text = await navigator.clipboard.readText();
+            // Set the input value to the pasted text
+            document.getElementById('user-input').value = text;
+        } catch (err) {
+            console.error('Failed to read clipboard contents: ', err);
+        }
+    }
+
+    function switchStyles() {
+    const themeStylesheet = document.getElementById('theme-stylesheet');
+    // Toggle between dark and light stylesheets based on current href
+    themeStylesheet.href = themeStylesheet.href.includes('dark-styles.css') ? 'css/light-styles.css' : 'css/dark-styles.css';
+
+}
+
+document.querySelector('.save-btn').addEventListener('click', function() {
+  // Get the AI response text
+  const aiResponseElement = document.querySelector('#textToRead');
+
+  if (aiResponseElement) {
+    const inputText = aiResponseElement.textContent.trim();
+
+    // Check if there's any text to save
+    if (inputText) {
+      // Save the article in local storage
+      const savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+      savedArticles.push(inputText);
+      localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+
+      // Display the saved article in the list
+      displaySavedArticles();
+    }
+  }
+});
+
+function displaySavedArticles() {
+  const savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+  const savedList = document.querySelector('.saved-text-list');
+  
+  // Clear the current list
+  savedList.innerHTML = '';
+  
+  // Create a list item for each saved article
+  savedArticles.forEach(article => {
+    const listItem = document.createElement('li');
+    listItem.textContent = article;
+    savedList.appendChild(listItem);
+  });
+}
+
+// Call displaySavedArticles on page load
+window.addEventListener('load', displaySavedArticles);
+
+document.getElementById('clearLogsButton').addEventListener('click', function() {
+  localStorage.removeItem('savedArticles');
+  displaySavedArticles(); // Clear the list on the page
+});
+
+
+
+
+  </script>
+
+<script src="js/sliderscript.js"></script> <!-- Slider JS -->
+<script src="js/copyscript.js"></script> <!-- Copy JS -->
+<script src="js/loginScript.js"></script> <!-- Login JS -->
+<script src="js/alerts.js"></script> <!-- Alerts JS -->
+<script src="js/popup-script.js"></script> <!-- popup JS -->
+
+</body>
+</html>

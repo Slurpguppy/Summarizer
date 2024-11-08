@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy to Clipboard with Enhanced Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            height: 100%;
+            width: 100%;
+            
+            position: fixed;
+            border-radius: 8px;
+            
+        }
+
+        .side-bar-btns {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        side-bar-btns::hover {
+            background-color: #0056b3;
+        }
+
+        .log {
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .log ul {
+            list-style-type: none;
+            padding: 0;
+
+            
+            margin-top: 10px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        li {
+            margin-bottom: 50px;
+            padding: 50px;
+            width: 250px;
+            height: 100%;
+            background: rgb(244, 244, 244);;
+            border: 1px solid #7474742c;
+            border-radius: 10px;
+            font-size: 16px;  /* Adjust font size */
+            line-height: 1.6;  /* Spacing between lines for readability */
+            color: #333;  /* Dark color for the text */
+            padding: 10px;
+        }
+
+        select {
+            margin-top: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text"  value="This is some sample text" />
+        <button class="side-bar-btns" id="copyButton">Save Article</button>
+        <div class="log">
+            <h2>History:</h2>
+            <select id="sortOptions">
+                <option value="default">Sort By</option>
+                <option value="alphabetical">Alphabetical</option>
+                <option value="chronological">Chronological</option>
+            </select>
+            <ul id="logList"></ul>
+            <button class="side-bar-btns" id="clearLogsButton">Clear Logs</button>
+        </div>
+    </div>
+    <script>
+        
+    </script>
+
+<script src="js/copyscript.js"></script> <!-- Copy JS -->
+</body>
+</html>
